@@ -3,27 +3,14 @@ using System.Collections;
 
 public partial class GameManager
 {
-    public string lastLoadedScene;
-
     public static GameManager Instance;
     private Dictionary<string, GameManagerModule> managerModules = new();
 
     public override void _Ready()
     {
         Instance ??= this;
-        InitImportantModules();
     }
-
-    /// <summary>
-    /// Adds modules that will almost always be required
-    /// </summary>
-    private void InitImportantModules()
-    {
-        AddModule<SteamManager>();
-        AddModule<MenuActionManager>();
-        AddModule<MusicManager>();
-    }
-
+	
     /// <summary>
     /// Adds a module to the GameManagerModules dictionary
     /// </summary>
@@ -68,7 +55,6 @@ public partial class GameManager
             return (T)managerModules[typeof(T).Name];
         else
         {
-            GD.Print($"GameManagerModule of type {typeof(T).Name} not found in modules dictionary");
             return null;
         }
     }
