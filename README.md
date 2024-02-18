@@ -1,0 +1,1 @@
+If you want to use this for whatever reason you might have to modify it slightly to work with your game engine or whatever of choice, I tried to make it pretty general but it can be improved for certain engines of whatever
